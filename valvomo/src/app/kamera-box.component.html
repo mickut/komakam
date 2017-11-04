@@ -1,0 +1,29 @@
+<div *ngIf="kamera">
+    <input id="tab-{{index}}-1" type="radio" name="tabs-{{index}}" checked>
+    <label for="tab-{{index}}-1"></label>
+    <input id="tab-{{index}}-2" type="radio" name="tabs-{{index}}" *ngIf="kamera.videoFileName">
+    <label for="tab-{{index}}-2" *ngIf="kamera.videoFileName"></label>
+    <section id="content-{{index}}-1">
+        <label class="frameReload" (click)="updateImage();"></label>
+        <input type="checkbox" id="kamera-image-{{index}}" name="fullscreen-kamera" />
+        <label for="kamera-image-{{index}}">
+            <div class="content">
+                <div class="frame">
+                    <img src='{{imageUri}}'/>
+                </div>
+            </div>
+        </label>
+    </section>
+    <section id="content-{{index}}-2" *ngIf="kamera.videoFileName">
+            <label class="frameReload" (click)="updateVideo();"></label>
+            <div class="content">
+            <div class="videoFrame">
+                <video controls height="100%" width="100%" preload="metadata"
+                    src="{{videoUri}}"
+                    poster="{{imageUri}}"
+                    type="video/mp4" id="video-{{index}}"
+                    (dblclick)="videoFullscreen($event);"></video>
+            </div>
+        </div>
+    </section>
+</div>

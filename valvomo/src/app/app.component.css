@@ -1,0 +1,8 @@
+div.container  {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.container > div {
+    margin-right: 4px;
+}

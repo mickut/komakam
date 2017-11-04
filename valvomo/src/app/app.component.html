@@ -1,0 +1,12 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{title}}
+  </h1>
+</div>
+<div class="container">
+  <div *ngFor="let kamera of kameras; index as i">
+    <kamera-box [index]="i" [kamera]="kamera" [servers]="servers"></kamera-box>
+  </div>
+</div>
+
