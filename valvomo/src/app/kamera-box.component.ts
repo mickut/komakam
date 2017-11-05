@@ -8,6 +8,7 @@ import { Kamera } from './kamera';
 })
 
 export class KameraBoxComponent {
+    videoMetadataLoaded: boolean;
     @Input() kamera: Kamera;
     @Input() index: number;
     @Input() servers: string[];
@@ -26,6 +27,7 @@ export class KameraBoxComponent {
     }
 
     public updateVideo() {
+        this.videoMetadataLoaded = false;
         this.videoStamp = Math.floor(Date.now() / 1000);
     }
 
@@ -60,5 +62,9 @@ export class KameraBoxComponent {
         } else if (video.msRequestFullscreen) {
             video.msRequestFullscreen();
         }
+    }
+
+    public loadedMetaData($event) {
+        this.videoMetadataLoaded = true;
     }
  }
